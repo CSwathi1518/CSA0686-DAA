@@ -1,0 +1,30 @@
+#include <stdio.h>
+int reverse(int n) {
+  int rev = 0;
+  while (n > 0) {
+    rev = rev * 10 + n % 10;
+    n = n / 10;
+  }
+  return rev;
+}
+int complexity(int n) {
+  int steps = 0;
+  while (n > 0) {
+    steps++;
+    n = n / 10;
+  }
+  return steps;
+}
+int main() {
+  int num;
+  printf("Enter a number: ");
+  scanf("%d", &num);
+  printf("The reversed number is: %d\n", reverse(num));
+  printf("The time complexity is: O(%d)\n", complexity(num));
+  return 0;
+}
+
+OUTPUT:
+Enter a number: 3456
+The reversed number is: 6543
+The time complexity is: O(4)
