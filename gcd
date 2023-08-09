@@ -1,0 +1,39 @@
+#include <stdio.h>
+int gcd(int a, int b) {
+  if (a < 0 || b < 0) {
+    return -1;
+  }
+  if (a == 0) {
+    return b;
+  }
+  if (b == 0) {
+    return a;
+  }
+  if (a == b) {
+    return a;
+  }
+  if (a > b) {
+    return gcd(a - b, b);
+  }
+  else {
+    return gcd(a, b - a);
+  }
+}
+int main() {
+  int x, y;
+  printf("Enter two numbers: ");
+  scanf("%d %d", &x, &y);
+  int result = gcd(x, y);
+  if (result == -1) {
+    printf("Invalid input\n");
+  } else {
+    printf("The GCD of %d and %d is %d\n", x, y, result);
+  }
+
+  return 0;
+}
+
+OUTPUT:
+Enter two numbers: -56
+68
+Invalid input
