@@ -1,0 +1,56 @@
+#include <stdio.h>
+#include <stdlib.h>
+void merge(int* nums1, int m, int* nums2, int n)
+{
+    int* result = (int*)malloc((m + n) * sizeof(int)); 
+    int i = 0; 
+    int j = 0; 
+    int k = 0;
+    while (i < m && j < n)
+    {
+        if (nums1[i] <= nums2[j])
+        {
+            result[k] = nums1[i];
+            i++;
+        }
+        else
+        {
+            result[k] = nums2[j];
+            j++;
+        }
+        k++;
+    }
+    while (i < m)
+    {
+        result[k] = nums1[i];
+        i++;
+        k++;
+    }
+    while (j < n)
+    {
+        result[k] = nums2[j];
+        j++;
+        k++;
+    }
+    printf("The merged array is: ");
+    for (int i = 0; i < m + n; i++)
+    {
+        printf("%d ", result[i]);
+    }
+    printf("\n");
+    free(result);
+}
+int main()
+{
+    int nums1[] = {3, 8, 1, 9};
+    int m = sizeof(nums1) / sizeof(nums1[0]);
+    int nums2[] = {4, -2, 0, 7};
+    int n = sizeof(nums2) / sizeof(nums2[0]);
+    merge(nums1, m, nums2, n);
+    
+    return 0;
+}
+
+
+OUTPUT:
+The merged array is: 3 4 -2 0 7 8 1 9
