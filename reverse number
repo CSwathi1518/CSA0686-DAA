@@ -1,27 +1,43 @@
 #include <stdio.h>
-int reverse(int n) {
-  int rev = 0;
-  while (n > 0) {
-    rev = rev * 10 + n % 10;
-    n = n / 10;
-  }
-  return rev;
+#include <stdlib.h>
+int reverse(int n)
+{
+    int rev = 0;
+    while (n > 0)
+    {
+        rev = rev * 10 + n % 10;
+        n = n / 10;
+    }
+    return rev;
 }
-int complexity(int n) {
-  int steps = 0;
-  while (n > 0) {
-    steps++;
-    n = n / 10;
-  }
-  return steps;
+
+int is_valid(char *input)
+{
+    for (int i = 0; input[i] != '\0'; i++)
+    {
+        if (input[i] < '0' || input[i] > '9')
+            return 0;
+    }
+    return 1;
 }
-int main() {
-  int num;
-  printf("Enter a number: ");
-  scanf("%d", &num);
-  printf("The reversed number is: %d\n", reverse(num));
-  printf("The time complexity is: O(%d)\n", complexity(num));
-  return 0;
+int main()
+{
+    char input[100];
+
+    printf("Enter a number: ");
+
+    scanf("%s", input);
+    if (is_valid(input))
+    {
+        int n = atoi(input);
+
+        printf("The reverse of %d is %d\n", n, reverse(n));
+    }
+    else
+    {
+        printf("Illegal input\n");
+    }
+    return 0;
 }
 
 OUTPUT:
