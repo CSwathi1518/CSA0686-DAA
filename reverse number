@@ -37,7 +37,6 @@ int main()
     {
         printf("Illegal input\n");
     }
-    return 0;
 }
 
 OUTPUT:
