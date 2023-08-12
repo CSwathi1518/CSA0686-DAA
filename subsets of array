@@ -1,0 +1,76 @@
+#include <stdio.h>
+#include <stdlib.h>
+void printSubsets(int set[], int n) {
+    for (int i = 0; i < (1 << n); i++) {
+        printf("{ ");
+        for (int j = 0; j < n; j++) {
+            if (i & (1 << j)) {
+                printf("%d ", set[j]);
+            }
+        }
+        printf("}\n");
+    }
+}
+
+int main() {
+    int n;
+
+    printf("Enter the size of the set: ");
+    scanf("%d", &n);
+
+    int *set = (int *)malloc(n * sizeof(int));
+
+    printf("Enter the elements of the set:\n");
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &set[i]);
+    }
+
+    printf("Subsets of the given set:\n");
+    printSubsets(set, n);
+
+    free(set);
+    return 0;
+}
+
+
+OUTPUT:
+Enter the size of the set: 5
+Enter the elements of the set:
+4
+6
+7
+5
+2
+Subsets of the given set:
+{ }
+{ 4 }
+{ 6 }
+{ 4 6 }
+{ 7 }
+{ 4 7 }
+{ 6 7 }
+{ 4 6 7 }
+{ 5 }
+{ 4 5 }
+{ 6 5 }
+{ 4 6 5 }
+{ 7 5 }
+{ 4 7 5 }
+{ 6 7 5 }
+{ 4 6 7 5 }
+{ 2 }
+{ 4 2 }
+{ 6 2 }
+{ 4 6 2 }
+{ 7 2 }
+{ 4 7 2 }
+{ 6 7 2 }
+{ 4 6 7 2 }
+{ 5 2 }
+{ 4 5 2 }
+{ 6 5 2 }
+{ 4 6 5 2 }
+{ 7 5 2 }
+{ 4 7 5 2 }
+{ 6 7 5 2 }
+{ 4 6 7 5 2 }
